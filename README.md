@@ -40,8 +40,20 @@ You run /anvil ──► RECALL past learnings ──► DISPATCH subagent to fi
 ### Install
 
 ```bash
+# Install globally from GitHub
+npm install -g github:abdullah1854/Anvil --install-prefix=./anvil-cc
+
+# Or clone and link
+git clone https://github.com/abdullah1854/Anvil.git
+cd Anvil/anvil-cc
+npm install && npm run build && npm link
+```
+
+Then in your project:
+
+```bash
 cd your-project
-npx anvil-cc init
+anvil-cc init
 ```
 
 This installs:
@@ -84,13 +96,13 @@ Instead of writing shell commands, use shorthand names:
 ## CLI Commands
 
 ```bash
-npx anvil-cc init                    # Install skill + hook (Lite mode)
-npx anvil-cc init --smart            # Install with vector search (Ollama + ChromaDB)
-npx anvil-cc init --global           # Install for all projects
-npx anvil-cc status                  # Show install status, mode, learning count
-npx anvil-cc reindex                 # Rebuild vector index from markdown
-npx anvil-cc chunk                   # Smart error chunking (piped stdin)
-npx anvil-cc uninstall               # Remove skill + hook
+anvil-cc init                    # Install skill + hook (Lite mode)
+anvil-cc init --smart            # Install with vector search (Ollama + ChromaDB)
+anvil-cc init --global           # Install for all projects
+anvil-cc status                  # Show install status, mode, learning count
+anvil-cc reindex                 # Rebuild vector index from markdown
+anvil-cc chunk                   # Smart error chunking (piped stdin)
+anvil-cc uninstall               # Remove skill + hook
 ```
 
 ## Smart Error Chunking
@@ -108,7 +120,7 @@ Anvil doesn't just truncate error output — it extracts the useful parts:
 You can also use it standalone:
 
 ```bash
-npm test 2>&1 | npx anvil-cc chunk --max-chars 2000
+npm test 2>&1 | anvil-cc chunk --max-chars 2000
 ```
 
 ## Memory System
@@ -124,7 +136,7 @@ Anvil uses two tiers of memory:
 ### Smart Mode (opt-in, local vector search)
 
 ```bash
-npx anvil-cc init --smart
+anvil-cc init --smart
 ```
 
 Adds semantic search via local embeddings:
@@ -171,7 +183,7 @@ Anvil has three components:
 |-----------|-------------|---------------|
 | **Skill** (`/anvil`) | Iteration state machine, subagent dispatch, memory management | `.claude/commands/anvil.md` or `~/.claude/skills/anvil/` |
 | **Hook** | Detects test/build failures, suggests `/anvil` | `~/.local/bin/anvil-detect-hook.py` |
-| **CLI** (`npx anvil-cc`) | One-time setup, chunking utility, index management | npm package |
+| **CLI** (`anvil-cc`) | One-time setup, chunking utility, index management | npm package |
 
 The skill file is the core — it's a markdown file with instructions that Claude Code follows. No TypeScript runtime needed for the iteration logic. The CLI is only for installation and utilities.
 
