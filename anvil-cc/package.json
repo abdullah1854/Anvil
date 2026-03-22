@@ -1,0 +1,30 @@
+{
+  "name": "anvil-cc",
+  "version": "0.1.0",
+  "description": "Iterative code forging engine for Claude Code — auto-fixes with retry loops, smart chunking, and cross-session learning",
+  "type": "module",
+  "bin": {
+    "anvil-cc": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc && cp -r src/templates dist/templates",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "files": [
+    "dist/**/*",
+    "src/templates/**/*"
+  ],
+  "keywords": ["claude-code", "iteration", "auto-fix", "tdd", "testing"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
