@@ -26,6 +26,7 @@ describe("CLI", () => {
       encoding: "utf-8",
     });
     expect(output).toContain("anvil-cc");
+    expect(output).toContain("fix code");
     expect(output).toContain("init");
     expect(output).toContain("status");
     expect(output).toContain("chunk");
@@ -60,5 +61,6 @@ describe("CLI", () => {
   it("shows usage with no arguments", () => {
     const output = execSync(`node ${q(CLI_PATH)}`, { encoding: "utf-8" });
     expect(output).toContain("anvil-cc");
+    expect(output).toContain("retry with the latest error");
   });
 });
