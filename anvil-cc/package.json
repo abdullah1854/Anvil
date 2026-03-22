@@ -11,14 +11,35 @@
     "dev": "tsc --watch",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
   },
   "files": [
     "dist/**/*",
     "src/templates/**/*"
   ],
-  "keywords": ["claude-code", "iteration", "auto-fix", "tdd", "testing"],
+  "keywords": [
+    "claude-code",
+    "claude",
+    "anthropic",
+    "iteration",
+    "auto-fix",
+    "tdd",
+    "testing",
+    "debugging",
+    "ai-coding",
+    "developer-tools"
+  ],
+  "author": "Abdullah <abdullah1854@users.noreply.github.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullah1854/Anvil.git"
+  },
+  "homepage": "https://github.com/abdullah1854/Anvil#readme",
+  "bugs": {
+    "url": "https://github.com/abdullah1854/Anvil/issues"
+  },
   "engines": {
     "node": ">=20"
   },
