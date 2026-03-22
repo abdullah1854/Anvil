@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CLI_PATH = join(__dirname, "..", "dist", "cli.js");
+const AUTOMATION_DESCRIPTION =
+  "Automates: fix code → run your test/build/lint check → retry with the latest error until it passes or max attempts are reached";
 
 /** Quote a path for shell usage (handles spaces) */
 function q(p: string): string {
@@ -26,7 +28,7 @@ describe("CLI", () => {
       encoding: "utf-8",
     });
     expect(output).toContain("anvil-cc");
-    expect(output).toContain("fix code");
+    expect(output).toContain(AUTOMATION_DESCRIPTION);
     expect(output).toContain("init");
     expect(output).toContain("status");
     expect(output).toContain("chunk");
@@ -61,6 +63,6 @@ describe("CLI", () => {
   it("shows usage with no arguments", () => {
     const output = execSync(`node ${q(CLI_PATH)}`, { encoding: "utf-8" });
     expect(output).toContain("anvil-cc");
-    expect(output).toContain("retry with the latest error");
+    expect(output).toContain(AUTOMATION_DESCRIPTION);
   });
 });
