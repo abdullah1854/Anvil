@@ -25,6 +25,7 @@ async function main(): Promise<void> {
 function printUsage(): void {
   console.log(`
 anvil-cc — Iterative code forging engine for Claude Code
+Automates: fix code → run your test/build/lint check → retry with the latest error until it passes or max attempts are reached
 
 Usage:
   anvil-cc init [--smart] [--global|--project]   Install skill + hooks

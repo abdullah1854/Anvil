@@ -2,6 +2,8 @@
 
 **Iterative code forging engine for Claude Code.**
 
+In plain English, Anvil takes a coding task like "fix the failing tests", asks Claude Code to make a focused fix, runs your verification command, and keeps retrying with the latest error output until the check passes or it reaches the retry limit.
+
 Anvil automates the fix-verify-retry loop. When tests fail or builds break, instead of manually fixing, re-running, reading errors, and fixing again — Anvil does that loop for you, learning from every attempt.
 
 ```
